@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en' xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title >about page</title>
+
+</head>
+<body>
+<section>
+<div class="card mr-3 ml-3">
+	<div class="card-body">
+		<h1 class="text-center">Your Documents</h1>
+	<!--  Search table -->
+	<div class="search-container my-3">
+	<input onkeyup="search()" id="search-input" type="text" class="form-control" placeholder="search your contact" />
+	<div class="search-result">
+	
+	<!--  result goes here -->
+	<h1>This is search result</h1>
+
+
+	<div class="container">
+  <div class="row">
+    <div class="col">
+      1 of 2
+    </div>
+    <div class="col">
+      2 of 2
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      1 of 3
+    </div>
+    <div class="col">
+      2 of 3
+    </div>
+    <div class="col">
+      3 of 3
+    </div>
+  </div>
+</div>
+
+
+
+	</div>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
+</div>
+ <script>
+ $(".item").removeClass("active");
+ $('#contacts-link').addClass('active'); 
+ </script>
+ 
+</section>
+
+</body>
+</html>

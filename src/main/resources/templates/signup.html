@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang='en' xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title >Sign up page</title>
+</head>
+<body>
+<section >
+<div class="container">
+<div class="row justify-content-center align-items-center">
+<div class="col-md-6 offset-md-0">
+
+
+
+<div class="my-card mt-2">
+
+ <div th:if="${session.message}" th:classappend="${session.message.type}"class="alert alert-primary" role="alert">
+  <p class="text-center" th:text="${session.message.content}">A simple primary alert with <a href="" class="alert-link">an example link</a>. Give it a click if you like.</p>
+<th:block  th:text="${#session.removeAttribute('message')}"></th:block>
+</div>
+
+<div class="container text-center">
+<img  style="width:80px " src="" th:src="@{/img/survey.png}"/>
+</div>
+
+
+
+<h3 class="text-center"> Register here</h3>
+
+
+<form  th:action="@{/register_new_user}" method="POST" th:object="${user}">
+<!--  Name field -->
+ <div class="form-group">
+    <label for="name" class="form-label">Your Name</label>
+    
+    <input name="name"
+     type="text"
+      class="form-control" 
+      th:classappend="${#fields.hasErrors('name')?'is-invalid':''}"
+      id="name" 
+      placeholder="Enter here" 
+      required th:value="${user.name}" />
+      <div th:each="e: ${#fields.errors('name')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+ 	Please specify user name </div>
+    
+  </div>
+
+  <!--  Email field  -->
+ <div class="form-group">
+    <label for="email" class="form-label">Your Email</label>  
+    <input name="email"
+     type="text" 
+     class="form-control" 
+     th:classappend="${#fields.hasErrors('email')?'is-invalid':''}"
+     id="email"
+     placeholder="Enter here" 
+     required th:value="${user.email}">
+      <div th:each="e: ${#fields.errors('email')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+ 	Please specify email</div>
+    
+  </div>
+  
+   <!--  Phone number field  -->
+ <div class="form-group">
+    <label for="phone" class="form-label">Your Contact Number</label>  
+    <input name="phone"
+     type="text" 
+     class="form-control" 
+     th:classappend="${#fields.hasErrors('phone')?'is-invalid':''}"
+     id="phone"
+     placeholder="Enter here" 
+     required th:value="${user.phone}">
+      <div th:each="e: ${#fields.errors('phone')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+ 	Please specify phone number</div>
+    
+  </div>
+  
+ 
+  <!--  password field -->
+ <div class="form-group">
+    <label for="password" class="form-label">Your Password</label>
+    
+    <input name="password"
+     type="password"
+      class="form-control"
+      th:classappend="${#fields.hasErrors('password')?'is-invalid':''}"
+       id="password" 
+       placeholder="Enter here" 
+       required>
+    
+   <div th:each="e: ${#fields.errors('password')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+ 	Please specify password</div>
+ 	</div>
+  
+
+<!--  terms and condition agreement -->
+ <div class="mb-3 form-check form-group">
+    <input 
+    type="checkbox" 
+    class="form-check-input" 
+     th:classappend="${#fields.hasErrors('agreed')?'is-invalid':''}"
+    name="agreed"
+    id="exampleCheck1">
+    <label class="form-check-label" for="form-check-input">Accept terms and condition</label>
+     <div th:each="e: ${#fields.errors('agreed')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+ 	  Please Agree terms and condition</div>
+
+  </div>
+
+<div class="container text-center">
+<button type="submit" class="btn btn-primary btn-block text-white">Submit</button>
+
+<button type="reset" class="btn btn-warning btn-block">Reset</button>
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+</body>
+</html>

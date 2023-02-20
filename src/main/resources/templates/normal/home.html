@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--  xmlns = xml namespace -->
+<html lang='en' xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title >home page</title>
+</head>
+<body>
+<section>
+<div class="container">
+<div class="card text-center">
+<div class="card-body mr-5">
+
+</div>
+
+<h1>Add Your Document Here...........</h1>
+
+<a class="btn btn-primary mt-4 btn-block text-uppercase" th:href="@{/user/add_document}">Add Document</a>
+
+</div>
+</div>
+ <script>
+ $(".item").removeClass("active");
+ $('#home-link').addClass('active'); 
+ </script>
+ 
+ 
+</section>
+
+</body>
+</html>
